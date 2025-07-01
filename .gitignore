@@ -1,0 +1,55 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# Environment files
+.env
+.env.*
+
+# Streamlit generated cache and logs
+.streamlit/
+.streamlit/config.toml
+.streamlit/credentials.toml
+
+# VSCode config
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python packaging artifacts
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Jupyter Notebook checkpoints (if used)
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Data caches
+*.sqlite3
+__results__/
+cache/
+*.db
+
+# Model / embedding artifacts
+*.bin
+*.pt
+*.ckpt
+*.tflite
+
+# HuggingFace transformers / datasets cache
+~/.cache/huggingface/
+~/.huggingface/

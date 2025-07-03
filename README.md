@@ -1,5 +1,8 @@
 # 🧠 Math Routing Agent
 
+📄 [Project Report (PDF)](https://drive.google.com/file/d/1X8SsLY-4UXtnRUMF0Q65jaLMKzaqexTH/view?usp=sharing)
+
+
 A smart math question-answering agent designed for step by step math problem solving using an **Agentic-RAG (Retrieval-Augmented Generation)** architecture. The agent integrates knowledge base retrieval, web search fallback, LLM reasoning, and human-in-the-loop feedback with guardrails to ensure safe, accurate responses.
 
 ![Frontend](https://img.shields.io/badge/Frontend-Streamlit-orange)

@@ -22,10 +22,11 @@ if "feedback_submitted" not in st.session_state:
 
 # Input form for math query
 with st.form("math_form"):
-    st.session_state.query = st.text_input("Ask a math question", value=st.session_state.query)
+    user_input = st.text_input("Ask a math question", value="", key="input_field")
     submitted = st.form_submit_button("Submit")
 
-    if submitted and st.session_state.query:
+    if submitted and user_input.strip():
+        st.session_state.query = user_input.strip()
         st.session_state.response = answer_query(st.session_state.query)
         st.session_state.feedback_submitted = False  # Reset feedback status
 

@@ -17,7 +17,15 @@ def llama3_fallback(query: str) -> str:
     payload = {
         "model": "meta-llama/llama-3-8b-instruct",
         "messages": [
-            {"role": "system", "content": "You are a helpful and accurate math solver. Solve the following step by step."},
+            {
+                "role": "system",
+                "content": (
+                    "You are a helpful and strict math-solving assistant. "
+                    "Only respond to math-related queries involving calculations, problem-solving, or reasoning. "
+                    "If the user query is not related to math, respond with: "
+                    "'Only math-related questions please.'"
+                )
+            },
             {"role": "user", "content": query}
         ]
     }

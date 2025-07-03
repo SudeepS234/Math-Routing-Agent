@@ -2,9 +2,9 @@
 
 A smart math question-answering agent designed for step by step math problem solving using an **Agentic-RAG (Retrieval-Augmented Generation)** architecture. The agent integrates knowledge base retrieval, web search fallback, LLM reasoning, and human-in-the-loop feedback with guardrails to ensure safe, accurate responses.
 
-![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-orange)
+![Frontend](https://img.shields.io/badge/Frontend-Streamlit-orange)
 ![RAG](https://img.shields.io/badge/Architecture-RAG-brightgreen)
-![LLM](https://img.shields.io/badge/LLM-LLaMA--3-yellow)
+![Fallback Model](https://img.shields.io/badge/LLM-LLaMA--3-yellow)
 
 ---
 

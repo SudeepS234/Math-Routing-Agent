@@ -4,7 +4,6 @@ A smart math question-answering agent designed for JEE-level problem solving usi
 
 ![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-orange)
 ![LLM](https://img.shields.io/badge/LLM-LLaMA--3-yellow)
-![Qdrant]
 
 ---
 

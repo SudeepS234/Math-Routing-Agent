@@ -53,3 +53,5 @@ cache/
 # HuggingFace transformers / datasets cache
 ~/.cache/huggingface/
 ~/.huggingface/
+
+feedback_log.csv

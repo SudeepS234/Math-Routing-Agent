@@ -1,6 +1,6 @@
 # 🧠 Math Routing Agent
 
-A smart math question-answering agent designed for JEE-level problem solving using an **Agentic-RAG (Retrieval-Augmented Generation)** architecture. The agent integrates knowledge base retrieval, web search fallback, LLM reasoning, and human-in-the-loop feedback with guardrails to ensure safe, accurate responses.
+A smart math question-answering agent designed for step by step math problem solving using an **Agentic-RAG (Retrieval-Augmented Generation)** architecture. The agent integrates knowledge base retrieval, web search fallback, LLM reasoning, and human-in-the-loop feedback with guardrails to ensure safe, accurate responses.
 
 ![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-orange)
 ![LLM](https://img.shields.io/badge/LLM-LLaMA--3-yellow)
@@ -10,11 +10,10 @@ A smart math question-answering agent designed for JEE-level problem solving usi
 ## 🔍 Features
 
 - 📚 **Vector Search**: Retrieves from a curated math QA knowledge base using vector similarity.
-- 🌐 **Web Search Fallback**: Scrapes Cymath or uses LLM if no close KB match is found.
 - 🧠 **LLM Reasoning**: Uses LLaMA-3 (via Hugging Face Novita router) for fallback solutions.
-- 🔁 **Human-in-the-loop Feedback**: Supports DSPy-based feedback learning.
+- 🔁 **Human-in-the-loop Feedback**: Supports Human-in-the-loop feedback and collects the message.
 - 🛡️ **Guardrails AI**: Validates both question and answer formats.
-- 📈 **Benchmarking**: Measures performance using the JEE Bench dataset (via Hugging Face).
+- 📈 **Benchmarking**: Measures performance using the JEE Bench dataset.
 
 ---
 
@@ -33,3 +32,32 @@ A smart math question-answering agent designed for JEE-level problem solving usi
 ```bash
 git clone https://github.com/SudeepS234/Math-Routing-Agent.git
 cd Math-Routing-Agent
+```
+
+2. **Install Docker(if not yet installed) and run this in cmd:**
+```bash
+docker run -p 6333:6333 -p 6334:6334 qdrant/qdrant
+```
+
+3. **Add these keys(freely available) in a .env file in the root folder:**
+```bash
+QDRANT_URL=http://localhost:6333
+QDRANT_COLLECTION=math_kb
+QDRANT_API_KEY= {Get your key by creating a free cluster}
+HF_API_TOKEN= {your huggingface token}
+```
+
+4. **Create a virtual environment:**
+```bash
+python -m venv env
+```
+
+5. **In the virtual environment install the requirements:**
+```bash
+pip install -r requirements.txt
+```
+
+6. **Run the app:**
+```bash
+streamlit run app/main.py
+```

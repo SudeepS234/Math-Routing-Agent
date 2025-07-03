@@ -4,7 +4,7 @@ A smart math question-answering agent designed for step by step math problem sol
 
 ![Frontend](https://img.shields.io/badge/Frontend-Streamlit-orange)
 ![RAG](https://img.shields.io/badge/Architecture-RAG-brightgreen)
-![Fallback Model](https://img.shields.io/badge/LLM-LLaMA--3-yellow)
+![Fallback-Model](https://img.shields.io/badge/LLM-LLaMA--3-yellow)
 
 ---
 

@@ -1,26 +1,55 @@
+# app/main.py
+
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import streamlit as st
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from agents.router import answer_query
-from app.feedback import save_feedback  # <-- Add this import
+from app.feedback import save_feedback
 
+st.set_page_config(page_title="Math Tutor Agent", page_icon="🧠")
 st.title("🧠 Math Tutor Agent")
-query = st.text_input("Ask a math question")
 
-response = ""
-if st.button("Submit"):
-    if query:
-        response = answer_query(query)
-        st.markdown(response)
-    else:
-        st.warning("Please enter a question.")
+# Initialize session state variables
+if "query" not in st.session_state:
+    st.session_state.query = ""
+if "response" not in st.session_state:
+    st.session_state.response = ""
+if "feedback_submitted" not in st.session_state:
+    st.session_state.feedback_submitted = False
+
+# Input form for math query
+with st.form("math_form"):
+    st.session_state.query = st.text_input("Ask a math question", value=st.session_state.query)
+    submitted = st.form_submit_button("Submit")
+
+    if submitted and st.session_state.query:
+        st.session_state.response = answer_query(st.session_state.query)
+        st.session_state.feedback_submitted = False  # Reset feedback status
+
+# Show answer
+if st.session_state.response:
+    st.markdown("### Answer")
+    st.markdown(st.session_state.response)
 
 # Feedback section
-if response:
-    st.markdown("### Was this answer helpful?")
-    feedback = st.radio("Your feedback:", ("👍 Yes", "👎 No"))
-    comments = st.text_area("Additional comments (optional):")
-    if st.button("Submit Feedback"):
-        save_feedback(query, response, feedback, comments)
-        st.success("Thank you for your feedback!")
+if st.session_state.response and not st.session_state.feedback_submitted:
+    st.markdown("---")
+    st.subheader("📋 Feedback")
+
+    with st.form("feedback_form"):
+        feedback = st.radio("Was this answer helpful?", ("👍 Yes", "👎 No"))
+        comments = st.text_area("Additional comments (optional):")
+        submit_feedback = st.form_submit_button("Submit Feedback")
+
+        if submit_feedback:
+            save_feedback(
+                st.session_state.query,
+                st.session_state.response,
+                feedback,
+                comments
+            )
+            st.session_state.feedback_submitted = True
+            st.success("✅ Thank you for your feedback!")
